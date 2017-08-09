@@ -35,7 +35,7 @@ class DreamSpeed_Services extends DreamSpeed_Plugin_Base {
 		// Set default region
 		$myregion = $this->get_setting( 'region' );
 		if ( empty($myregion ) ) { 
-			$this->set_setting( 'region' , 'objects-us-west-1.dream.io' );
+			$this->set_setting( 'region' , 'o.auroraobjects.eu' );
 			$this->save_settings();
 		}
 
@@ -618,8 +618,8 @@ class DreamSpeed_Services extends DreamSpeed_Plugin_Base {
 			// http://custom.example.io
 			$domain_base = $this->get_setting( 'cloudfront' );
 		} elseif ( $this->get_setting( 'fullspeed' ) == 1) {
-			// http(s)://BUCKET.objects.cdn.dream.io	 OR http(s)://objects-REGION.dream.io/BUCKET	 (becuase Fastly)
-			$domain_base = ( $bucket_period == false )? $this->get_setting( 'bucket' ) . '.objects.cdn.dream.io' : 'objects.cdn.dream.io/' . $this->get_setting( 'bucket' );
+			// http(s)://BUCKET.o.auroraobjects.eu	 OR http(s)://objects-REGION.dream.io/BUCKET	 (becuase Fastly)
+			$domain_base = ( $bucket_period == false )? $this->get_setting( 'bucket' ) . '.o.auroraobjects.eu' : 'o.auroraobjects.eu/' . $this->get_setting( 'bucket' );
 		} else {
 			// http(s)://BUCKET.objects-REGION.dream.io OR http(s)://objects-REGION.dream.io/BUCKET
 			$domain_base = ( $bucket_period == false )? $this->get_setting( 'bucket' ) . '.' . $this->get_setting( 'region' ) : $this->get_setting( 'region' ) . '/' . $this->get_setting( 'bucket' );
